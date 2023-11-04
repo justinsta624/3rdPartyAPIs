@@ -28,6 +28,7 @@ textarea {
 }
 
 .time-block {
+  text-align: center;
   border-radius: 15px;
 }
 
@@ -69,26 +70,27 @@ textarea {
   transition: all 0.3s ease-in-out;
 }
 
-/*** OVERWRITE - MEDIA QUERY FOR TABLETS AND SMALLER  ***/
-/* This will be applied on any screen 768px and bellow */
-@media screen and (max-width: 768px), screen and (max-width: 575px) {
+/* Resize screen under 768px will apply following condition */
+@media screen and (max-width: 768px) {
+  .maintemplate {
+    background-color: lightgreen;
+  }
+  
   .row {
+    background-color: lightblue;
     height: auto;
-    margin-top: 20px;
   }
 
   .hour {
-    padding-right: 17%;
+    background-color: lightgray;
   }
 
   .saveBtn {
-    border: 0;
-    border-radius: 0.25rem;
-    height: 50px;
+    height: auto;
   }
 
   textarea {
-    min-height: 85px;
-    border: 0;
+    background-color: antiquewhite;
+    height: auto;
   }
 }
