@@ -14,8 +14,17 @@ textarea {
   padding: 10px;
 }
 
+.Introduction {
+  text-align: center;
+  background: transparent;
+  border-radius: 5%;
+  padding: 30px;
+}
+
 .description {
   white-space: pre-wrap;
+  background-color: ivory;
+  border-top: 1px dashed #000000;
 }
 
 .time-block {
@@ -58,4 +67,28 @@ textarea {
 .saveBtn i:hover {
   font-size: 20px;
   transition: all 0.3s ease-in-out;
+}
+
+/*** OVERWRITE - MEDIA QUERY FOR TABLETS AND SMALLER  ***/
+/* This will be applied on any screen 768px and bellow */
+@media screen and (max-width: 768px), screen and (max-width: 575px) {
+  .row {
+    height: auto;
+    margin-top: 20px;
+  }
+
+  .hour {
+    padding-right: 17%;
+  }
+
+  .saveBtn {
+    border: 0;
+    border-radius: 0.25rem;
+    height: 50px;
+  }
+
+  textarea {
+    min-height: 85px;
+    border: 0;
+  }
 }
