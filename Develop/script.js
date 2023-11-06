@@ -1,9 +1,7 @@
-// Wrap all code that interacts with the DOM in a call to jQuery to ensure that the code isn't run 
-// until the browser has finished rendering all the elements in the html.
-
 // Indicate the current day on the header 
 // MMMM: month, Do: day, YYYY: year, h=hour, mm=minute, ss=second, a=am/pm
 // external source: https://momentjs.com
+
 $(document).ready(function() {
   $("#realtime").text(dayjs().format('MMMM D YYYY, h:mm:ss a'));
 
@@ -13,25 +11,21 @@ $(document).ready(function() {
 // in 24-hour time?
 
 // Update time-block with different color in relation to past/present/future
-// external source: "Date constructor" https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/Date
+// external source: "DOM navigation: Node relationship" https://www.w3schools.com/js/js_htmldom_navigation.asp 
+
   function realtimeBlocks() {
     var today = dayjs();  
     var timenow = dayjs().hour();
     $(".description").each(function() {
-      var timeblock = parseInt($(this).attr("id"));
-        if (timeblock < timenow) {
-          $(this).addClass("past");
-          $(this).removeClass("present");
-          $(this).removeClass("future");            
-        } else if (timeblock === timenow) {
-          $(this).removeClass("past");
-          $(this).addClass("present");
-          $(this).removeClass("future");      
-        } else {
-          $(this).removeClass("past");
-          $(this).removeClass("present");
-          $(this).addClass("future");
-        }    
+      var timeblock = parseInt($(this).parent().attr("id"));
+      $(this).removeClass("past present future"); // remove all classes EXCEPT
+      if (timeblock < timenow) { // if loops add past condition
+        $(this).addClass("past"); 
+      } else if (timeblock === timenow) { // else if loops add present condition
+        $(this).addClass("present");   
+      } else { // else loops add future condition
+        $(this).addClass("future");
+      }
     });
   }
 
@@ -45,7 +39,7 @@ $(document).ready(function() {
 
   // Saving description in the local storage
   $(".saveBtn").on("click", function() {
-    var Hour = $(this).siblings(".description").attr("id");
+    var Hour = $(this).parent().attr("id");
     var Text = $(this).siblings(".description").val().trim();
     localStorage.setItem(Hour, Text);
   });
@@ -63,6 +57,20 @@ $(document).ready(function() {
       }
     });
   }
+
+  // JS source code guide from tutorial by A.Al Hilfi
+  $("#9").children("textarea").val(localStorage.getItem("9"));
+  $("#10").children("textarea").val(localStorage.getItem("10"));
+  $("#11").children("textarea").val(localStorage.getItem("11"));
+  $("#12").children("textarea").val(localStorage.getItem("12"));
+  $("#13").children("textarea").val(localStorage.getItem("13"));
+  $("#14").children("textarea").val(localStorage.getItem("14"));
+  $("#15").children("textarea").val(localStorage.getItem("15"));
+  $("#16").children("textarea").val(localStorage.getItem("16"));
+  $("#17").children("textarea").val(localStorage.getItem("17")); 
+  $("#18").children("textarea").val(localStorage.getItem("18"));
+  $("#19").children("textarea").val(localStorage.getItem("19"));
+  $("#20").children("textarea").val(localStorage.getItem("20")); 
 
   loadSavings();
 });
