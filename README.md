@@ -33,6 +33,7 @@ THEN the saved events persist
 ```
 
 ## Screenshot of the deployed application
+![image](https://github.com/justinsta624/3rdPartyAPIs/assets/143357899/00660c4b-9317-4f4b-963e-af482043f1b1)
 
 ## URL of the deployed application
 https://justinsta624.github.io/3rdPartyAPIs
